@@ -55,7 +55,7 @@ export const ConsumableReplaceModal: React.FC<ConsumableReplaceModalProps> = ({
       setPadExpiry(getYearMonthPlusYears(2));
       setBatteryExpiry(getYearMonthPlusYears(4));
     } else if (type === 'body') {
-      setBodyExpiry(getYearMonthPlusYears(8));
+      setBodyExpiry(getYearMonthPlusYears(10));
     }
   };
 
@@ -188,12 +188,15 @@ export const ConsumableReplaceModal: React.FC<ConsumableReplaceModalProps> = ({
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-slate-800 flex items-center gap-1.5">
                   <Layers className="w-3.5 h-3.5 text-slate-500" />
-                  새 패드 유효기간 (년·월)
+                  새 패드 상품 기입 날짜 (년·월)
                 </span>
                 <span className="text-[11px] text-slate-500">
                   기존: <strong className="font-mono text-slate-700">{formatYearMonth(aed.padExpiryDate)}</strong>
                 </span>
               </div>
+              <p className="text-[11px] text-emerald-800 bg-emerald-50/80 px-2 py-1 rounded-lg border border-emerald-100">
+                패드 포장지/상품에 기입된 날짜(년·월)를 확인하여 입력하세요.
+              </p>
 
               {/* Native Year-Month input */}
               <input

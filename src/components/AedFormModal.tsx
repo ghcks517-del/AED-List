@@ -54,7 +54,7 @@ export const AedFormModal: React.FC<AedFormModalProps> = ({
       setBuilding('본관');
       setPadExpiryDate(getYearMonthPlusYears(2));
       setBatteryExpiryDate(getYearMonthPlusYears(4));
-      setBodyExpiryDate(getYearMonthPlusYears(8));
+      setBodyExpiryDate(getYearMonthPlusYears(10));
       setMohwStatus('registered');
       setMohwRegNumber(`MOHW-2026-AED-${String(count).padStart(4, '0')}`);
       setModelName('메디아나 HeartOn A15');
@@ -81,7 +81,7 @@ export const AedFormModal: React.FC<AedFormModalProps> = ({
       return;
     }
     if (!bodyExpiryDate) {
-      setErrorMsg('본체 유효기간(년·월)을 입력해주세요.');
+      setErrorMsg('본체 유효기간(10년, 년·월)을 입력해주세요.');
       return;
     }
     if (!batteryExpiryDate) {
@@ -89,7 +89,7 @@ export const AedFormModal: React.FC<AedFormModalProps> = ({
       return;
     }
     if (!padExpiryDate) {
-      setErrorMsg('패드 유효기간(년·월)을 입력해주세요.');
+      setErrorMsg('패드 유효기간(상품 기입 날짜, 년·월)을 입력해주세요.');
       return;
     }
 
@@ -214,11 +214,11 @@ export const AedFormModal: React.FC<AedFormModalProps> = ({
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                {/* 패드 */}
+                {/* 패드 (상품 기입 날짜) */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <label className="text-[11px] font-bold text-slate-700">
-                      패드 유효기간 <span className="text-red-600">*</span>
+                      상품 기입 날짜 (패드) <span className="text-red-600">*</span>
                     </label>
                     <button
                       type="button"
@@ -235,7 +235,7 @@ export const AedFormModal: React.FC<AedFormModalProps> = ({
                     onChange={(e) => setPadExpiryDate(e.target.value)}
                     className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-xl font-mono min-h-[40px]"
                   />
-                  <span className="text-[10px] text-slate-500 mt-0.5 block">YYYY-MM</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5 block">패드 포장 표기일 (YYYY-MM)</span>
                 </div>
 
                 {/* 배터리 */}
@@ -262,18 +262,18 @@ export const AedFormModal: React.FC<AedFormModalProps> = ({
                   <span className="text-[10px] text-slate-500 mt-0.5 block">YYYY-MM</span>
                 </div>
 
-                {/* 본체 */}
+                {/* 본체 (10년) */}
                 <div>
                   <div className="flex items-center justify-between mb-1">
                     <label className="text-[11px] font-bold text-slate-700">
-                      본체 유효기간 <span className="text-red-600">*</span>
+                      본체 유효기간 (10년) <span className="text-red-600">*</span>
                     </label>
                     <button
                       type="button"
-                      onClick={() => setBodyExpiryDate(getYearMonthPlusYears(8))}
+                      onClick={() => setBodyExpiryDate(getYearMonthPlusYears(10))}
                       className="text-[10px] text-red-600 font-semibold"
                     >
-                      +8년
+                      +10년
                     </button>
                   </div>
                   <input
@@ -283,7 +283,7 @@ export const AedFormModal: React.FC<AedFormModalProps> = ({
                     onChange={(e) => setBodyExpiryDate(e.target.value)}
                     className="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-xl font-mono min-h-[40px]"
                   />
-                  <span className="text-[10px] text-slate-500 mt-0.5 block">YYYY-MM</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5 block">내구연수 10년 (YYYY-MM)</span>
                 </div>
               </div>
             </div>

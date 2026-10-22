@@ -193,7 +193,7 @@ export const AedTable: React.FC<AedTableProps> = ({
                 <div className="grid grid-cols-3 gap-1.5 p-2.5 bg-slate-50 rounded-xl mb-3 text-center">
                   {/* Pad */}
                   <div className="border-r border-slate-200 pr-1">
-                    <span className="text-[10px] text-slate-500 font-medium block">패드 유효기간</span>
+                    <span className="text-[10px] text-slate-500 font-medium block">상품 기입 날짜(패드)</span>
                     <span
                       className={`text-xs font-mono font-black block mt-0.5 ${
                         pad.status === 'expired'
@@ -231,7 +231,7 @@ export const AedTable: React.FC<AedTableProps> = ({
 
                   {/* Main Body */}
                   <div>
-                    <span className="text-[10px] text-slate-500 font-medium block">본체 유효기간</span>
+                    <span className="text-[10px] text-slate-500 font-medium block">본체 유효기간(10년)</span>
                     <span className="text-xs font-mono font-bold text-slate-800 block mt-0.5">
                       {formatDDay(body.daysLeft)}
                     </span>
@@ -290,9 +290,9 @@ export const AedTable: React.FC<AedTableProps> = ({
               <th className="py-3 px-4 whitespace-nowrap">관리번호</th>
               <th className="py-3 px-4 min-w-[180px]">설치위치</th>
               <th className="py-3 px-3 text-center whitespace-nowrap">보건복지부 등록</th>
-              <th className="py-3 px-3 whitespace-nowrap">패드 유효기간(년·월)</th>
+              <th className="py-3 px-3 whitespace-nowrap">상품 기입 날짜(패드)</th>
               <th className="py-3 px-3 whitespace-nowrap">배터리 유효기간(년·월)</th>
-              <th className="py-3 px-3 whitespace-nowrap">본체 유효기간(년·월)</th>
+              <th className="py-3 px-3 whitespace-nowrap">본체 유효기간(10년)</th>
               <th className="py-3 px-3 whitespace-nowrap">최근 교체일</th>
               <th className="py-3 px-4 text-right whitespace-nowrap">소모품 관리</th>
             </tr>

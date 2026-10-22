@@ -138,7 +138,7 @@ export const ReplacementHistoryModal: React.FC<ReplacementHistoryModalProps> = (
                       {record.itemType === 'pad' ? (
                         <>
                           <Layers className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>패드 유효기간 갱신</span>
+                          <span>패드 상품 기입 날짜 갱신</span>
                         </>
                       ) : record.itemType === 'battery' ? (
                         <>
@@ -151,7 +151,7 @@ export const ReplacementHistoryModal: React.FC<ReplacementHistoryModalProps> = (
                           <span>패드 & 배터리 일괄 갱신</span>
                         </>
                       ) : (
-                        <span>본체 유효기간 갱신</span>
+                        <span>본체 유효기간(10년) 갱신</span>
                       )}
                     </span>
                     <span className="text-slate-500 text-[11px]">작업자: <strong>{record.worker}</strong></span>
