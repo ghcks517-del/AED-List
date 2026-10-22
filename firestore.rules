@@ -1,0 +1,29 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidAed(data) {
+      return data.keys().hasAll(['managementNo', 'location', 'padExpiryDate', 'batteryExpiryDate', 'bodyExpiryDate', 'mohwStatus']) &&
+             data.managementNo is string && data.managementNo.size() > 0 && data.managementNo.size() <= 64 &&
+             data.location is string && data.location.size() > 0 && data.location.size() <= 256 &&
+             data.padExpiryDate is string && data.padExpiryDate.size() <= 32 &&
+             data.batteryExpiryDate is string && data.batteryExpiryDate.size() <= 32 &&
+             data.bodyExpiryDate is string && data.bodyExpiryDate.size() <= 32 &&
+             data.mohwStatus in ['registered', 'unregistered', 'pending'];
+    }
+
+    match /aeds/{aedId} {
+      allow read: if true;
+      allow create, update: if isValidId(aedId) && isValidAed(request.resource.data);
+      allow delete: if isValidId(aedId);
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

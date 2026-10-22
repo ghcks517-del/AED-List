@@ -1,0 +1,33 @@
+{
+  "entities": {
+    "AedItem": {
+      "title": "AedItem",
+      "description": "Corporate AED device inventory and consumable expiration record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "managementNo": { "type": "string" },
+        "location": { "type": "string" },
+        "building": { "type": "string" },
+        "padExpiryDate": { "type": "string" },
+        "batteryExpiryDate": { "type": "string" },
+        "bodyExpiryDate": { "type": "string" },
+        "mohwStatus": { "type": "string" },
+        "mohwRegNumber": { "type": "string" },
+        "modelName": { "type": "string" },
+        "managerName": { "type": "string" },
+        "managerContact": { "type": "string" },
+        "lastReplacedDate": { "type": "string" },
+        "replacementHistory": { "type": "array" },
+        "notes": { "type": "string" }
+      },
+      "required": ["managementNo", "location", "padExpiryDate", "batteryExpiryDate", "bodyExpiryDate", "mohwStatus"]
+    }
+  },
+  "firestore": {
+    "/aeds/{aedId}": {
+      "schema": { "$ref": "#/entities/AedItem" },
+      "description": "Collection of corporate AED equipment"
+    }
+  }
+}
